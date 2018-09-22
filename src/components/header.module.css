@@ -1,5 +1,21 @@
 .header {
-	padding: 3rem;
-	background: #000;
-	color: #fff;
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+	padding-left: 3rem;
+	padding-right: 3rem;
+	display: flex;
+}
+
+.header a {
+	color: #000;
+	text-decoration: none;
+}
+
+.header h1 {
+	font-size: 1.8rem;
+	margin-bottom: 0;
+}
+
+.header nav {
+	margin-left: auto;
 }
