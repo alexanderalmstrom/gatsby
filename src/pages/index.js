@@ -1,9 +1,11 @@
 import React from 'react'
 
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
+
+import styles from '../components/Layout.module.scss'
 
 export default () => (
 	<Layout>
-		<h1>Hello world!</h1>
+		<h1 className={styles.pageTitle}>Hello world!</h1>
 	</Layout>
 )
