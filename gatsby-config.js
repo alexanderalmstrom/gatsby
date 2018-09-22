@@ -1,3 +1,16 @@
+let contentfulConfig
+
+try {
+	contentfulConfig = require('./.contentful')
+} catch (_) {}
+
+contentfulConfig = {
+	spaceId: process.env.CONTENTFUL_SPACE_ID || contentfulConfig.spaceId,
+	accessToken: process.env.CONTENTFUL_DELIVERY_TOKEN || contentfulConfig.accessToken
+}
+
+const { spaceId, accessToken } = contentfulConfig
+
 module.exports = {
 	siteMetadata: {
 		title: 'Gatsby'
@@ -17,6 +30,10 @@ module.exports = {
 		},
 		'gatsby-plugin-sass',
 		'gatsby-plugin-react-helmet',
-		'gatsby-plugin-offline'
+		'gatsby-plugin-offline',
+		{
+			resolve: `gatsby-source-contentful`,
+			options: contentfulConfig
+		}
 	]
 }
