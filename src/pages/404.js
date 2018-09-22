@@ -1,7 +1,7 @@
 import React from 'react'
 
-import Layout from '../components/Layout'
-import styles from '../components/Layout.module.scss'
+import Layout from '../components/layout'
+import styles from '../components/layout.module.scss'
 
 export default () => (
 	<Layout>

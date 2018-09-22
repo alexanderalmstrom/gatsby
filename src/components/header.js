@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-import styles from './Header.module.scss'
+import styles from './header.module.scss'
 
 export default ({ data }) => (
 	<header className={styles.header}>
