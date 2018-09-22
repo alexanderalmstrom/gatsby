@@ -14,8 +14,8 @@
   },
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
-    "serve": "gatsby serve",
+    "start": "gatsby develop",
+    "server": "gatsby serve",
     "format": "prettier --write '**/*.js'"
   },
   "devDependencies": {
