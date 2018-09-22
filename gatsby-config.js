@@ -1,7 +1,7 @@
 module.exports = {
 	siteMetadata: {
 		title: 'Alexander Almström',
-		description: 'This is so cool'
+		description: 'Front End Developer & Designer'
 	},
 	plugins: [
 		{
@@ -11,7 +11,7 @@ module.exports = {
 				short_name: 'starter',
 				start_url: '/',
 				background_color: '#000000',
-				theme_color: '#000000',
+				theme_color: '#ffffff',
 				display: 'minimal-ui',
 				icon: 'src/images/gatsby-icon.png'
 			},
