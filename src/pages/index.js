@@ -2,7 +2,6 @@ import React from 'react'
 import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
-
 import styles from '../components/Layout.module.scss'
 
 class Index extends React.Component {
