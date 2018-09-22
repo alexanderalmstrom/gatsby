@@ -3,6 +3,7 @@
   "description": "Gatsby site",
   "version": "1.0.0",
   "author": "Alexander Almström <info@alexanderalmstrom.com",
+  "license": "MIT",
   "dependencies": {
     "gatsby": "^2.0.0",
     "gatsby-plugin-manifest": "^2.0.2",
