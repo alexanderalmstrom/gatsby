@@ -1,17 +1,16 @@
 module.exports = {
 	siteMetadata: {
-		title: 'Alexander Almström',
-		description: 'Front End Developer & Designer'
+		title: 'Gatsby'
 	},
 	plugins: [
 		{
 			resolve: `gatsby-plugin-manifest`,
 			options: {
-				name: 'gatsby-site',
-				short_name: 'starter',
+				name: 'Gatsby',
+				short_name: 'Gatsby',
 				start_url: '/',
-				background_color: '#000000',
-				theme_color: '#ffffff',
+				background_color: '#f7f0eb',
+				theme_color: '#a2466c',
 				display: 'minimal-ui',
 				icon: 'src/images/gatsby-icon.png'
 			},
