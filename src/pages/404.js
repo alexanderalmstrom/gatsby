@@ -1,8 +1,12 @@
 import React from 'react'
 
-export default ({ data }) => (
-	<div className="not-found">
-		<h1>Oh no!</h1>
+import Layout from '../components/Layout'
+
+import styles from '../components/Layout.module.scss'
+
+export default () => (
+	<Layout>
+		<h1 className={styles.pageTitle}>Oh no!</h1>
 		<p>You broke everything :(</p>
-	</div>
+	</Layout>
 )
