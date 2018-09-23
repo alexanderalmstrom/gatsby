@@ -21,7 +21,7 @@
     "build": "gatsby build",
     "start": "gatsby develop",
     "server": "gatsby serve",
-    "format": "prettier --write '**/*.js'"
+    "format": "prettier --write 'src/**/*.{js,scss,json}'"
   },
   "devDependencies": {
     "prettier": "^1.14.3"

@@ -9,25 +9,23 @@ import '../base.scss'
 import styles from './layout.module.scss'
 
 export default ({ children }) => (
-	<StaticQuery
-		query={graphql`
-			query {
-				site {
-					siteMetadata {
-						title
-					}
-				}
-			}
-		`}
-		render={data => (
-			<div className={styles.wrapper}>
-				<Helmet title={data.site.siteMetadata.title} />
-				<Header data={data.site.siteMetadata} />
-				<main className={styles.main}>
-					{children}
-				</main>
-				<Footer />
-			</div>
-		)}
-	/>
+  <StaticQuery
+    query={graphql`
+      query {
+        site {
+          siteMetadata {
+            title
+          }
+        }
+      }
+    `}
+    render={data => (
+      <div className={styles.wrapper}>
+        <Helmet title={data.site.siteMetadata.title} />
+        <Header data={data.site.siteMetadata} />
+        <main className={styles.main}>{children}</main>
+        <Footer />
+      </div>
+    )}
+  />
 )

@@ -1,3 +1,3 @@
-export function stripHTML (html) {
-  return html.replace(/(<([^>]+)>)/ig, '')
+export function stripHTML(html) {
+  return html.replace(/(<([^>]+)>)/gi, '')
 }
