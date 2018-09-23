@@ -5,6 +5,7 @@ import Helmet from 'react-helmet'
 import Header from './header'
 import Footer from './footer'
 
+import '../base.scss'
 import styles from './layout.module.scss'
 
 export default ({ children }) => (
