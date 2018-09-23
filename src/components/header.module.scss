@@ -1,5 +1,5 @@
 .header {
-	padding: 4rem;
+	padding: 3rem;
 	display: flex;
 	font-size: 1.6rem;
 	position: fixed;
@@ -7,17 +7,23 @@
 	left: 0;
 	right: 0;
 
-	h1 {
-		margin-bottom: 0;
-		font-size: 1.6rem;
-	}
-
 	a {
 		color: inherit;
 		text-decoration: none;
+		padding: 1rem 0;
+	}
+
+	h1 {
+		margin-bottom: 0;
+		font-size: 1.6rem;
+
+		a {
+			border: none;
+		}
 	}
 
 	nav {
 		margin-left: auto;
+		padding-right: 1rem;
 	}
 }
