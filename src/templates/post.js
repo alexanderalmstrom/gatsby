@@ -12,7 +12,7 @@ class Post extends React.Component {
     const post = data.contentfulPost
 
     return (
-      <Layout>
+      <Layout isDark={true}>
         <Helmet title={`${post.name} - ${title}`} />
         <article className={styles.article}>
           <h1 className={styles.articleTitle}>{post.name}</h1>

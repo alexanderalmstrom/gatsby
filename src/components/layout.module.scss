@@ -1,4 +1,18 @@
-.wrapper {
+.base {
+  height: 100%;
+  min-height: 100vh;
+
+  &.is-dark {
+    background-color: #000;
+    color: #fff;
+
+    header {
+      a {
+        color: inherit;
+        border-color: inherit;
+      }
+    }
+  }
 }
 
 .main {
