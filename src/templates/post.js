@@ -1,15 +1,19 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import Helmet from 'react-helmet'
 
 import Layout from '../components/layout'
 import styles from './post.module.scss'
 
 class Post extends React.Component {
 	render () {
-		const post = this.props.data.contentfulPost
+		const { data } = this.props
+		const { title } = data.site.siteMetadata
+		const post = data.contentfulPost
 
 		return (
 			<Layout>
+				<Helmet title={`${post.name} - ${title}`} />
 				{ post ? (
 					<article className={styles.article}>
 						<h1 className={styles.articleTitle}>
@@ -30,6 +34,11 @@ class Post extends React.Component {
 
 export const query = graphql`
 	query($slug: String!) {
+		site {
+			siteMetadata {
+				title
+			}
+		}
 		contentfulPost(slug: { eq: $slug }) {
 			name
 			content {

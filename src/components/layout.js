@@ -1,5 +1,6 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
+import Helmet from 'react-helmet'
 
 import Header from './header'
 import Footer from './footer'
@@ -19,6 +20,7 @@ export default ({ children }) => (
 		`}
 		render={data => (
 			<div className={styles.wrapper}>
+				<Helmet title={data.site.siteMetadata.title} />
 				<Header data={data.site.siteMetadata} />
 				<main className={styles.main}>
 					{children}
