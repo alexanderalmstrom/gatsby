@@ -4748,7 +4748,7 @@ gatsby-plugin-sass@^2.0.1:
     "@babel/runtime" "^7.0.0"
     sass-loader "^7.0.1"
 
-gatsby-plugin-sharp@^2.0.0-rc.7:
+gatsby-plugin-sharp@^2.0.0-rc.7, gatsby-plugin-sharp@^2.0.5:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-sharp/-/gatsby-plugin-sharp-2.0.5.tgz#b14b9e72fda65b37f862cad46d4d41ae133f11af"
   dependencies:
@@ -4774,6 +4774,18 @@ gatsby-react-router-scroll@^2.0.0:
     "@babel/runtime" "^7.0.0"
     scroll-behavior "^0.9.9"
     warning "^3.0.0"
+
+gatsby-remark-images-contentful@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-images-contentful/-/gatsby-remark-images-contentful-2.0.0.tgz#f064b8d2f07e108a3ba3c0a07bdb9b4868c7edf8"
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    axios "^0.18.0"
+    cheerio "^1.0.0-rc.2"
+    is-relative-url "^2.0.0"
+    lodash "^4.17.10"
+    sharp "^0.20.2"
+    unist-util-select "^1.5.0"
 
 gatsby-source-contentful@^2.0.1:
   version "2.0.1"

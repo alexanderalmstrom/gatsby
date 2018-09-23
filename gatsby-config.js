@@ -16,8 +16,12 @@ module.exports = {
     title: 'Gatsby'
   },
   plugins: [
+    'gatsby-plugin-sass',
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-offline',
+    'gatsby-plugin-sharp',
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'Gatsby',
         short_name: 'Gatsby',
@@ -29,12 +33,22 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-source-contentful`,
+      resolve: 'gatsby-source-contentful',
       options: contentfulConfig
     },
-    'gatsby-plugin-sass',
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-offline',
-    'gatsby-transformer-remark'
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          {
+            resolve: 'gatsby-remark-images-contentful',
+            options: {
+              maxWidth: 1000,
+              linkImagesToOriginal: false
+            }
+          }
+        ]
+      }
+    }
   ]
 }
