@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 
 import Layout from '../components/layout'
 import styles from '../components/layout.module.scss'
@@ -12,10 +12,19 @@ class Index extends React.Component {
 			<Layout>
 				{ posts ? (
 					posts.map(entry => {
+						console.log(entry)
 						return (
 							<div key={entry.node.id} className={styles.articleItem}>
-								<h2>{entry.node.name}</h2>
-								<p>{entry.node.content.content}</p>
+								<h2>
+									<Link to={`/article/${entry.node.slug}`}>
+										{entry.node.name}
+									</Link>
+								</h2>
+								<div
+									dangerouslySetInnerHTML={{
+										__html: entry.node.content.content
+									}}
+								/>
 							</div>
 						)
 					})
@@ -31,6 +40,7 @@ export const query = graphql`
 			edges {
 				node {
 					id
+					slug
 					name
 					content {
 						content

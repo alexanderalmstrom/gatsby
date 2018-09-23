@@ -9,16 +9,25 @@ body {
 	line-height: 1.3;
 	letter-spacing: 0.04rem;
 	word-spacing: 0.04rem;
+	color: #222;
 }
 
 a {
 	color: inherit;
-	text-decoration: underline;
+	text-decoration: none;
+	border-bottom: 0.2rem solid transparent;
+	padding-bottom: 0.2rem;
+	transition: color 0.2s, border 0.2s;
 
 	&:visited,
 	&:active,
 	&:focus {
 		color: inherit;
+	}
+
+	&:hover {
+		color: #222;
+		border-color: #222;
 	}
 }
 
@@ -33,9 +42,33 @@ h3,
 h4,
 h5,
 h6 {
-	margin: 0 0 3rem 0;
+	margin: 0 0 2rem 0;
 	line-height: 1.1;
 	letter-spacing: -0.04rem;
+}
+
+h1 {
+	font-size: 6rem;
+}
+
+h2 {
+	font-size: 4rem;
+}
+
+h3 {
+	font-size: 3rem;
+}
+
+h4 {
+	font-size: 2rem;
+}
+
+h5 {
+	font-size: 1.8rem;
+}
+
+h6 {
+	font-size: 1.6rem;
 }
 
 .wrapper {
@@ -43,17 +76,23 @@ h6 {
 }
 
 .main {
+	padding-top: 10rem;
 	max-width: 70rem;
 	margin-left: auto;
 	margin-right: auto;
-	padding: 3rem;
 }
 
 .page-title {
-	font-size: 6rem;
-	text-align: center;
+	margin-top: 4rem;
+	margin-bottom: 4rem;
 }
 
 .article-item {
-	margin-bottom: 6rem;
+	margin-top: 4rem;
+
+	h2 {
+		a {
+			text-decoration: none;
+		}
+	}
 }

@@ -1,7 +1,11 @@
 .header {
-	padding: 3rem;
+	padding: 4rem;
 	display: flex;
 	font-size: 1.6rem;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
 
 	h1 {
 		margin-bottom: 0;
