@@ -1,4 +1,4 @@
-@import "../css/mixins.scss";
+@import '../css/mixins.scss';
 
 .header {
   padding: 2rem;
@@ -24,6 +24,10 @@
   h1 {
     margin-bottom: 0;
     font-size: 1.6rem;
+
+    @include media(sm) {
+      font-size: 1.8rem;
+    }
 
     a {
       border: none;

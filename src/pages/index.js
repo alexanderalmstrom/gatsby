@@ -21,7 +21,7 @@ class Index extends React.Component {
                       {entry.node.name}
                     </Link>
                   </h2>
-                  <div
+                  <div className={styles.articleItemContent}
                     dangerouslySetInnerHTML={{
                       __html: stripHTML(
                         entry.node.content.childMarkdownRemark.html
