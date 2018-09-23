@@ -11,6 +11,7 @@ body {
   letter-spacing: 0.04rem;
   word-spacing: 0.04rem;
   color: #222;
+  background:#fff;
   transition: all 0.3s;
 }
 
@@ -19,7 +20,7 @@ a {
   text-decoration: none;
   border-bottom: 0.2rem solid transparent;
   padding-bottom: 0.2rem;
-  transition: color 0.3s, border 0.3s;
+  transition: all 0.3s;
 
   &:visited,
   &:active,
@@ -42,6 +43,10 @@ h6 {
   margin: 0 0 2rem 0;
   line-height: 1.1;
   letter-spacing: -0.04rem;
+
+  a {
+    transition: none;
+  }
 }
 
 h1 {
@@ -81,32 +86,30 @@ img {
   display: block;
 }
 
-:global {
-  .state--dark {
-    background-color: #000;
-    color: #fff;
-  
-    header {
-      a {
-        color: inherit;
+body.state--dark {
+  background: #000;
+  color: #fff;
 
-        &:hover {
-          border-color: inherit;
-        }
+  #header {
+    a {
+      color: inherit;
+
+      &:hover {
+        border-color: inherit;
       }
     }
   }
+}
 
-  .state--scroll-up {
-    header {
-      background-color: #fff;
-      color: #000;
-    }
+body.state--scroll-up {
+  #header {
+    background: #fff;
+    color: #000;
   }
+}
 
-  .state--scroll-down {
-    header {
-      transform: translateY(-100%);
-    }
+body.state--scroll-down {
+  #header {
+    transform: translateY(-100%);
   }
 }

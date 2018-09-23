@@ -42,7 +42,7 @@ class Header extends React.Component {
 
   render () {
     return (
-      <header className={styles.header}>
+      <header id="header" className={styles.header}>
         <h1>
           <Link to="/">{this.props.data.title}</Link>
         </h1>
