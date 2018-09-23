@@ -1,12 +1,18 @@
+@import "../css/mixins.scss";
+
 .header {
-  padding: 3rem;
+  padding: 2rem;
   display: flex;
   font-size: 1.6rem;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  transition: background 0.3s;
+  transition: background 0.3s, transform 0.2s;
+
+  @include media(sm) {
+    padding: 3rem;
+  }
 
   a {
     color: inherit;

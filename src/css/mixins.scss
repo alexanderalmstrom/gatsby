@@ -1,0 +1,44 @@
+@import "./variables.scss";
+
+// mixins.scss
+
+@mixin media($breakpoint) {
+  @if $breakpoint == xs {
+    @media (max-width: $breakpoint-sm - 1) { @content; }
+  }
+
+  @else if $breakpoint == sm {
+    @media (min-width: $breakpoint-sm) { @content; }
+  }
+
+  @else if $breakpoint == md {
+    @media (min-width: $breakpoint-md) { @content; }
+  }
+
+  @else if $breakpoint == lg {
+    @media (min-width: $breakpoint-lg) { @content; }
+  }
+
+  @else {
+    @warn "Breakpoint mixin supports: xs, sm, md, lg";
+  }
+}
+
+@mixin gutter ($gutter: $grid-gutter) {
+  padding-left: $gutter;
+  padding-right: $gutter;
+}
+
+@mixin container($max-width: $grid-width) {
+  width: 100%;
+  max-width: $max-width;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin column ($size, $gutter: $grid-gutter) {
+  max-width: ($size / $grid-columns) * 100%;
+	flex: ($size / $grid-columns) * 100% 0 0;
+
+  @include gutter($grid-gutter);
+}
