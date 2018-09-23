@@ -15,7 +15,7 @@ class Index extends React.Component {
 						return (
 							<div key={entry.node.id} className={styles.articleItem}>
 								<h2>
-									<Link to={`/article/${entry.node.slug}`}>
+									<Link to={`/article/${entry.node.slug}/`}>
 										{entry.node.name}
 									</Link>
 								</h2>
