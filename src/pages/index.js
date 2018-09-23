@@ -1,6 +1,8 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 
+import { stripHTML } from '../services/helpers'
+
 import Layout from '../components/layout'
 import styles from '../templates/post.module.scss'
 
@@ -21,7 +23,7 @@ class Index extends React.Component {
 								</h2>
 								<div
 									dangerouslySetInnerHTML={{
-										__html: entry.node.content.content
+										__html: stripHTML(entry.node.content.childMarkdownRemark.html)
 									}}
 								/>
 							</div>
@@ -42,7 +44,9 @@ export const query = graphql`
 					slug
 					name
 					content {
-						content
+						childMarkdownRemark {
+							html
+						}
 					}
 				}
 			}

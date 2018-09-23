@@ -18,7 +18,7 @@ class Page extends React.Component {
 						<div
 							className={styles.pageContent}
 							dangerouslySetInnerHTML={{
-								__html: page.content.content
+								__html: page.content.childMarkdownRemark.html
 							}}
 						/>
 					</article>
@@ -33,7 +33,9 @@ export const query = graphql`
 		contentfulPage(slug: { eq: $slug }) {
 			name
 			content {
-				content
+				childMarkdownRemark {
+					html
+				}
 			}
 		}
 	}
