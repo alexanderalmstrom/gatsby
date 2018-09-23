@@ -12,7 +12,6 @@ class Index extends React.Component {
 			<Layout>
 				{ posts ? (
 					posts.map(entry => {
-						console.log(entry)
 						return (
 							<div key={entry.node.id} className={styles.articleItem}>
 								<h2>
