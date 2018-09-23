@@ -9,17 +9,19 @@ class Post extends React.Component {
 
 		return (
 			<Layout>
-				<article className={styles.article}>
-					<h1 className={styles.articleTitle}>
-						{post.name}
-					</h1>
-					<div
-						className={styles.articleContent}
-						dangerouslySetInnerHTML={{
-							__html: post.content.content
-						}}
-					/>
-				</article>
+				{ post ? (
+					<article className={styles.article}>
+						<h1 className={styles.articleTitle}>
+							{post.name}
+						</h1>
+						<div
+							className={styles.articleContent}
+							dangerouslySetInnerHTML={{
+								__html: post.content.content
+							}}
+						/>
+					</article>
+				) : null }
 			</Layout>
 		)
 	}
