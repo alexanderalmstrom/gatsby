@@ -11,7 +11,11 @@ class Header extends React.Component {
     this.currentScroll = 0
     this.lastScroll = 0
 
-    window.addEventListener('scroll', this.handleScroll.bind(this))
+    this.handleScroll = this.handleScroll.bind(this)
+  }
+
+  componentDidMount () {
+    window.addEventListener('scroll', this.handleScroll)
   }
   
   handleScroll () {
