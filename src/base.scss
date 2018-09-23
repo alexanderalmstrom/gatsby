@@ -11,6 +11,7 @@ body {
   letter-spacing: 0.04rem;
   word-spacing: 0.04rem;
   color: #222;
+  transition: all 0.3s;
 }
 
 a {
@@ -18,7 +19,7 @@ a {
   text-decoration: none;
   border-bottom: 0.2rem solid transparent;
   padding-bottom: 0.2rem;
-  transition: color 0.2s, border 0.2s;
+  transition: color 0.3s, border 0.3s;
 
   &:visited,
   &:active,
@@ -78,4 +79,34 @@ img {
   width: auto;
   border: 0;
   display: block;
+}
+
+:global {
+  .state--dark {
+    background-color: #000;
+    color: #fff;
+  
+    header {
+      a {
+        color: inherit;
+
+        &:hover {
+          border-color: inherit;
+        }
+      }
+    }
+  }
+
+  .state--scroll-up {
+    header {
+      background-color: #fff;
+      color: #000;
+    }
+  }
+
+  .state--scroll-down {
+    header {
+      transform: translateY(-100%);
+    }
+  }
 }
