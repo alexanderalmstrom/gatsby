@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Layout from '../components/layout'
-import styles from '../components/layout.module.scss'
+import styles from '../templates/page.module.scss'
 
 class NotFound extends React.Component {
 	render () {
