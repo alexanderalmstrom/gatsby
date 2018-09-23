@@ -14,17 +14,15 @@ class Page extends React.Component {
     return (
       <Layout>
         <Helmet title={`${page.name} - ${title}`} />
-        {page ? (
-          <article className={styles.page}>
-            <h1 className={styles.pageTitle}>{page.name}</h1>
-            <div
-              className={styles.pageContent}
-              dangerouslySetInnerHTML={{
-                __html: page.content.childMarkdownRemark.html
-              }}
-            />
-          </article>
-        ) : null}
+        <article className={styles.page}>
+          <h1 className={styles.pageTitle}>{page.name}</h1>
+          <div
+            className={styles.pageContent}
+            dangerouslySetInnerHTML={{
+              __html: page.content.childMarkdownRemark.html
+            }}
+          />
+        </article>
       </Layout>
     )
   }

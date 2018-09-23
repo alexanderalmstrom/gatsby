@@ -14,17 +14,15 @@ class Post extends React.Component {
     return (
       <Layout>
         <Helmet title={`${post.name} - ${title}`} />
-        {post ? (
-          <article className={styles.article}>
-            <h1 className={styles.articleTitle}>{post.name}</h1>
-            <div
-              className={styles.articleContent}
-              dangerouslySetInnerHTML={{
-                __html: post.content.childMarkdownRemark.html
-              }}
-            />
-          </article>
-        ) : null}
+        <article className={styles.article}>
+          <h1 className={styles.articleTitle}>{post.name}</h1>
+          <div
+            className={styles.articleContent}
+            dangerouslySetInnerHTML={{
+              __html: post.content.childMarkdownRemark.html
+            }}
+          />
+        </article>
       </Layout>
     )
   }
