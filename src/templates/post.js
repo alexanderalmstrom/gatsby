@@ -12,16 +12,24 @@ class Post extends React.Component {
     const post = data.contentfulPost
 
     return (
-      <Layout isDark={true}>
-        <Helmet title={`${post.name} - ${title}`} />
+      <Layout>
+        { post.name ? (
+          <Helmet title={`${post.name} - ${title}`} />
+        ) : null }
         <article className={styles.article}>
-          <h1 className={styles.articleTitle}>{post.name}</h1>
-          <div
-            className={styles.articleContent}
-            dangerouslySetInnerHTML={{
-              __html: post.content.childMarkdownRemark.html
-            }}
-          />
+          { post.name ? (
+            <h1 className={styles.articleTitle}>
+              {post.name}
+            </h1>
+          ) : null }
+          { post.content ? (
+            <div
+              className={styles.articleContent}
+              dangerouslySetInnerHTML={{
+                __html: post.content.childMarkdownRemark.html
+              }}
+            />
+          ) : null }
         </article>
       </Layout>
     )

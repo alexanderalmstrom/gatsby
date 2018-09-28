@@ -12,16 +12,22 @@ class Page extends React.Component {
     const page = data.contentfulPage
 
     return (
-      <Layout>
-        <Helmet title={`${page.name} - ${title}`} />
+      <Layout isDark={true}>
+        { page.name ? (
+          <Helmet title={`${page.name} - ${title}`} />
+        ) : null }
         <article className={styles.page}>
-          <h1 className={styles.pageTitle}>{page.name}</h1>
-          <div
-            className={styles.pageContent}
-            dangerouslySetInnerHTML={{
-              __html: page.content.childMarkdownRemark.html
-            }}
-          />
+          { page.name ? (
+            <h1 className={styles.pageTitle}>{page.name}</h1>
+          ) : null }
+          { page.content ? (
+            <div
+              className={styles.pageContent}
+              dangerouslySetInnerHTML={{
+                __html: page.content.childMarkdownRemark.html
+              }}
+            />
+          ) : null }
         </article>
       </Layout>
     )
