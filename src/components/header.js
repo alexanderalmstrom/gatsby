@@ -17,7 +17,7 @@ class Header extends React.Component {
   componentDidMount () {
     window.addEventListener('scroll', this.handleScroll)
   }
-  
+
   handleScroll () {
     this.currentScroll = window.pageYOffset
 

@@ -1,3 +1,1 @@
 # Gatsby
-
-Hello
