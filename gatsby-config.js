@@ -19,7 +19,7 @@ module.exports = {
     'gatsby-plugin-sass',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-offline',
-    'gatsby-plugin-sharp',
+    'gatsby-transformer-remark',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
@@ -35,20 +35,6 @@ module.exports = {
     {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig
-    },
-    {
-      resolve: 'gatsby-transformer-remark',
-      options: {
-        plugins: [
-          {
-            resolve: 'gatsby-remark-images-contentful',
-            options: {
-              maxWidth: 1000,
-              linkImagesToOriginal: false
-            }
-          }
-        ]
-      }
     }
   ]
 }
