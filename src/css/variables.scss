@@ -1,18 +1,23 @@
 // variables.scss
 
+// GRID
+
 $grid-width: 1170px;
 $grid-gutter: 2rem;
 $grid-columns: 12;
 
-// Breakpoints
+// BREAKPOINTS
+
 $breakpoint-sm: 768px;
 $breakpoint-md: 992px;
 $breakpoint-lg: 1200px;
 
-// Animations
+// ANIMATIONS
+
 $transition: 0.3s;
 
-// Colors
+// COLORS
+
 $black: #000;
 $white: #fff;
 $light-gray: #f3f3f3;
