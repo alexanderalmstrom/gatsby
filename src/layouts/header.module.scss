@@ -1,13 +1,10 @@
 @import '../css/mixins.scss';
 
 .header {
-  padding: 2rem;
   display: flex;
+  padding: 2rem;
+  @include position(fixed, 0, 0, null, 0);
   font-size: 1.6rem;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
   transition: background 0.3s, transform 0.2s;
   z-index: 1000;
 
@@ -20,22 +17,22 @@
     padding: 0.5rem 0;
     transition: none;
   }
+}
 
-  h1 {
-    margin-bottom: 0;
-    font-size: 1.6rem;
+.logo {
+  margin-bottom: 0;
+  font-size: 1.6rem;
 
-    @include media(sm) {
-      font-size: 1.8rem;
-    }
-
-    a {
-      border: none;
-    }
+  @include media(sm) {
+    font-size: 1.8rem;
   }
 
-  nav {
-    margin-left: auto;
-    padding-right: 1rem;
+  a {
+    border: none;
   }
+}
+
+.nav {
+  margin-left: auto;
+  padding-right: 1rem;
 }

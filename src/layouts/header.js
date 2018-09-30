@@ -42,10 +42,10 @@ class Header extends React.Component {
   render() {
     return (
       <header id="header" className={styles.header}>
-        <h1>
+        <div className={styles.logo}>
           <Link to="/">{this.props.data.title}</Link>
-        </h1>
-        <nav>
+        </div>
+        <nav className={styles.nav}>
           <Link to="/about/">About</Link>
         </nav>
       </header>
