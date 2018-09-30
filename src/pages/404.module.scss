@@ -2,16 +2,25 @@
 
 .page {
   @include container;
+  margin-top: 4rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.header,
+.content {
+  text-align: center;
 }
 
 .header {
-  @include column(12);
+  @include column(7);
 }
 
 .content {
-  @include column(12);
+  @include column(7);
 }
 
 .title {
-  font-size: 3rem;
+  @include heading-1;
 }

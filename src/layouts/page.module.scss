@@ -5,15 +5,18 @@
 }
 
 .page {
+
 }
 
 .header {
   margin-top: 4rem;
   @include container;
+  display: flex;
+  justify-content: center;
 }
 
 .header-inner {
-  @include column(12);
+  @include column(9);
 }
 
 .title {
@@ -22,8 +25,10 @@
 
 .content {
   @include container;
+  display: flex;
+  justify-content: center;
 }
 
 .content-inner {
-  @include column(12);
+  @include column(9);
 }

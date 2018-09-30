@@ -26,7 +26,7 @@ body {
 a {
   color: inherit;
   text-decoration: none;
-  border-bottom: 0.4rem solid transparent;
+  border-bottom: 0.2rem solid transparent;
   padding-bottom: 0.2rem;
   transition: color $transition, border $transition;
 
@@ -51,54 +51,34 @@ h6 {
   margin: 0 0 1.5rem 0;
   line-height: 1.1;
   letter-spacing: -0.04rem;
+
+  a {
+    border-bottom: none;
+  }
 }
 
 h1 {
-  font-size: 4rem;
-
-  @include media(sm) {
-    font-size: 6rem;
-  }
+  @include heading-1;
 }
 
 h2 {
-  font-size: 2.8rem;
-
-  @include media(sm) {
-    font-size: 4rem;
-  }
+  @include heading-2;
 }
 
 h3 {
-  font-size: 2.2rem;
-
-  @include media(sm) {
-    font-size: 3rem;
-  }
+  @include heading-3;
 }
 
 h4 {
-  font-size: 1.8rem;
-
-  @include media(sm) {
-    font-size: 2rem;
-  }
+  @include heading-4;
 }
 
 h5 {
-  font-size: 1.6rem;
-
-  @include media(sm) {
-    font-size: 1.8rem;
-  }
+  @include heading-5;
 }
 
 h6 {
-  font-size: 1.4rem;
-
-  @include media(sm) {
-    font-size: 1.6rem;
-  }
+  @include heading-6;
 }
 
 p {
