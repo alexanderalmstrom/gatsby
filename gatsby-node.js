@@ -5,8 +5,8 @@ exports.createPages = ({ graphql, getNode, actions }) => {
   const { createPage } = actions
 
   return new Promise((resolve, reject) => {
-    const postTemplate = path.resolve('./src/templates/post.js')
-    const pageTemplate = path.resolve('./src/templates/page.js')
+    const postLayout = path.resolve('./src/layouts/post.js')
+    const pageLayout = path.resolve('./src/layouts/page.js')
 
     resolve(
       graphql(
@@ -40,7 +40,7 @@ exports.createPages = ({ graphql, getNode, actions }) => {
         posts.forEach((post, index) => {
           createPage({
             path: `/article/${post.node.slug}/`,
-            component: postTemplate,
+            component: postLayout,
             context: {
               slug: post.node.slug
             }
@@ -50,7 +50,7 @@ exports.createPages = ({ graphql, getNode, actions }) => {
         pages.forEach((page, index) => {
           createPage({
             path: `/${page.node.slug}/`,
-            component: pageTemplate,
+            component: pageLayout,
             context: {
               slug: page.node.slug
             }

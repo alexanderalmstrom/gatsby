@@ -1,0 +1,11 @@
+@import '../css/mixins.scss';
+
+.container {
+  @include container;
+  display: flex;
+  justify-content: center;
+}
+
+.posts {
+  max-width: 70rem;
+}

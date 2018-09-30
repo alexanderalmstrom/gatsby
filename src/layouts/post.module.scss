@@ -4,23 +4,20 @@
   @include container;
 }
 
-.post {
-}
-
 .header {
   margin-top: -8rem;
-}
-
-.hero {
-  margin-bottom: 8rem;
+  margin-bottom: 4rem;
   position: relative;
 
+  @include media(sm) {
+    margin-bottom: 8rem;
+  }
+
   > div {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
+    @include position(absolute, 50%, 0, null, 0);
     transform: translateY(-50%);
+    width: 90%;
+    max-width: $grid-width;
     color: $white;
   }
 
@@ -43,5 +40,11 @@
 }
 
 .content {
-  @include column(12);
+  @include container;
+  display: flex;
+  justify-content: center;
+}
+
+.content-inner {
+  @include column(7);
 }

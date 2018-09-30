@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
-import Layout from '../components/layout'
+import Layout from '../layouts/layout'
 import styles from './page.module.scss'
 
 class Page extends React.Component {
@@ -39,7 +39,7 @@ class Page extends React.Component {
 }
 
 export const query = graphql`
-  query($slug: String!) {
+  query SinglePageQuery($slug: String!) {
     site {
       siteMetadata {
         title

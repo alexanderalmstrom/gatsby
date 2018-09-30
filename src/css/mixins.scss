@@ -46,8 +46,20 @@
 }
 
 @mixin column($size, $gutter: $grid-gutter) {
-  max-width: ($size / $grid-columns) * 100%;
-  flex: ($size / $grid-columns) * 100% 0 0;
-
   @include gutter($grid-gutter);
+  flex: 100% 0 0;
+  max-width: 100%;
+
+  @include media(sm) {
+    flex: ($size / $grid-columns) * 100% 0 0;
+    max-width: ($size / $grid-columns) * 100%;
+  }
+}
+
+@mixin position($position: null, $top: null, $right: null, $bottom: null, $left: null) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
 }

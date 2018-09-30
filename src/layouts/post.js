@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
-import Layout from '../components/layout'
+import Layout from '../layouts/layout'
 import styles from './post.module.scss'
 
 class Post extends React.Component {
@@ -16,12 +16,7 @@ class Post extends React.Component {
         {post.name ? <Helmet title={`${post.name} - ${title}`} /> : null}
         <article className={styles.post}>
           {post.heroImage ? (
-            <header
-              className={[
-                styles.header,
-                post.heroImage ? styles.hero : ''
-              ].join(' ')}
-            >
+            <header className={styles.header}>
               <div className={styles.headerInner}>
                 {post.name ? (
                   <h1 className={styles.title}>{post.name}</h1>
@@ -31,14 +26,14 @@ class Post extends React.Component {
             </header>
           ) : null}
           {post.content ? (
-            <div className={styles.container}>
+            <section className={styles.content}>
               <div
-                className={styles.content}
+                className={styles.contentInner}
                 dangerouslySetInnerHTML={{
                   __html: post.content.childMarkdownRemark.html
                 }}
               />
-            </div>
+            </section>
           ) : null}
         </article>
       </Layout>
@@ -47,7 +42,7 @@ class Post extends React.Component {
 }
 
 export const query = graphql`
-  query($slug: String!) {
+  query SinglePostQuery($slug: String!) {
     site {
       siteMetadata {
         title
@@ -65,6 +60,7 @@ export const query = graphql`
           html
         }
       }
+      publishDate(formatString: "MMMM Do, YYYY")
     }
   }
 `

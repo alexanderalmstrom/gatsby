@@ -2,11 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 
-import { stripHTML } from '../services/helpers'
+import { truncate } from '../services/helpers'
 
-import styles from './post-item.module.scss'
+import styles from './post-preview.module.scss'
 
-class PostItem extends React.Component {
+class PostPreview extends React.Component {
   render() {
     const { entry } = this.props
 
@@ -18,7 +18,7 @@ class PostItem extends React.Component {
         <div
           className={styles.content}
           dangerouslySetInnerHTML={{
-            __html: stripHTML(entry.node.content.childMarkdownRemark.html)
+            __html: truncate(entry.node.content.childMarkdownRemark.html)
           }}
         />
       </div>
@@ -26,8 +26,8 @@ class PostItem extends React.Component {
   }
 }
 
-PostItem.propTypes = {
+PostPreview.propTypes = {
   entry: PropTypes.object
 }
 
-export default PostItem
+export default PostPreview

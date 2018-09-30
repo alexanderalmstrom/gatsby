@@ -22,7 +22,8 @@
     "build": "gatsby build",
     "start": "gatsby develop",
     "server": "gatsby serve",
-    "format": "prettier --write 'src/**/*.{js,scss,json,md}'"
+    "format": "prettier --write 'src/**/*.{js,scss,json,md}'",
+    "clear-cache": "rm -rf ./cache"
   },
   "devDependencies": {
     "prettier": "^1.14.3"

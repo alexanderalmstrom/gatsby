@@ -1,0 +1,17 @@
+@import '../css/mixins.scss';
+
+.page {
+  @include container;
+}
+
+.header {
+  @include column(12);
+}
+
+.content {
+  @include column(12);
+}
+
+.title {
+  font-size: 3rem;
+}
