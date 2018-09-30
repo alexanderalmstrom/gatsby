@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 import styles from './header.module.scss'
 
 class Header extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.delta = 5
@@ -14,15 +14,14 @@ class Header extends React.Component {
     this.handleScroll = this.handleScroll.bind(this)
   }
 
-  componentDidMount () {
+  componentDidMount() {
     window.addEventListener('scroll', this.handleScroll)
   }
 
-  handleScroll () {
+  handleScroll() {
     this.currentScroll = window.pageYOffset
 
-    if (Math.abs(this.lastScroll - this.currentScroll) <= this.delta)
-     return
+    if (Math.abs(this.lastScroll - this.currentScroll) <= this.delta) return
 
     if (this.currentScroll > 100) {
       if (this.lastScroll > this.currentScroll) {
@@ -40,7 +39,7 @@ class Header extends React.Component {
     this.lastScroll = this.currentScroll
   }
 
-  render () {
+  render() {
     return (
       <header id="header" className={styles.header}>
         <h1>

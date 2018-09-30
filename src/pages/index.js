@@ -12,11 +12,11 @@ class Index extends React.Component {
     return (
       <Layout>
         <div className="container">
-          { posts ? posts.map(entry => {
-            return (
-              <PostItem entry={entry} />
-            )
-          }) : null }
+          {posts
+            ? posts.map(entry => {
+                return <PostItem key={entry.node.id} entry={entry} />
+              })
+            : null}
         </div>
       </Layout>
     )

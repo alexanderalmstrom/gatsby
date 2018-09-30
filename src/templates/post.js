@@ -13,23 +13,24 @@ class Post extends React.Component {
 
     return (
       <Layout isPost={true}>
-        { post.name ? (
-          <Helmet title={`${post.name} - ${title}`} />
-        ) : null }
+        {post.name ? <Helmet title={`${post.name} - ${title}`} /> : null}
         <article className={styles.post}>
-          { post.heroImage ? (
-            <header className={[styles.header, post.heroImage ? styles.hero : ""].join(' ')}>
+          {post.heroImage ? (
+            <header
+              className={[
+                styles.header,
+                post.heroImage ? styles.hero : ''
+              ].join(' ')}
+            >
               <div className={styles.headerInner}>
-                { post.name ? (
-                  <h1 className={styles.title}>
-                    {post.name}
-                  </h1>
-                ) : null }
+                {post.name ? (
+                  <h1 className={styles.title}>{post.name}</h1>
+                ) : null}
               </div>
               <img src={post.heroImage.resize.src} alt="" />
             </header>
-          ) : null }
-          { post.content ? (
+          ) : null}
+          {post.content ? (
             <div className={styles.container}>
               <div
                 className={styles.content}
@@ -38,7 +39,7 @@ class Post extends React.Component {
                 }}
               />
             </div>
-          ) : null }
+          ) : null}
         </article>
       </Layout>
     )

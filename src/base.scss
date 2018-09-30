@@ -9,7 +9,7 @@ html {
 
 body {
   margin: 0;
-  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
   font-size: 1.6rem;
   line-height: 1.3;
   letter-spacing: 0.04rem;
@@ -127,8 +127,6 @@ body.state--dark {
 
   #header {
     a {
-      color: inherit;
-
       &:hover {
         border-color: inherit;
       }
@@ -136,22 +134,22 @@ body.state--dark {
   }
 }
 
+body.state--post {
+  #header {
+    color: $white;
+  }
+}
+
 body.state--scroll-up {
   #header {
-    background: $black;
-    color: $white;
+    background: $white;
+    color: $black;
   }
 }
 
 body.state--scroll-down {
   #header {
     transform: translateY(-100%);
-  }
-}
-
-body.state--post {
-  #header {
-    color: $white;
   }
 }
 

@@ -13,18 +13,16 @@ class Page extends React.Component {
 
     return (
       <Layout isDark={true}>
-        { page.name ? (
-          <Helmet title={`${page.name} - ${title}`} />
-        ) : null }
+        {page.name ? <Helmet title={`${page.name} - ${title}`} /> : null}
         <article className={styles.page}>
-          { page.name ? (
+          {page.name ? (
             <header className={styles.header}>
               <div className={styles.headerInner}>
                 <h1 className={styles.title}>{page.name}</h1>
               </div>
             </header>
-          ) : null }
-          { page.content ? (
+          ) : null}
+          {page.content ? (
             <div className={styles.content}>
               <div
                 className={styles.contentInner}
@@ -33,7 +31,7 @@ class Page extends React.Component {
                 }}
               />
             </div>
-          ) : null }
+          ) : null}
         </article>
       </Layout>
     )

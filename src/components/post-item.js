@@ -7,21 +7,18 @@ import { stripHTML } from '../services/helpers'
 import styles from './post-item.module.scss'
 
 class PostItem extends React.Component {
-  render () {
+  render() {
     const { entry } = this.props
 
     return (
-      <div key={entry.node.id} className={styles.post}>
+      <div className={styles.post}>
         <h2 className={styles.title}>
-          <Link to={`/article/${entry.node.slug}/`}>
-            {entry.node.name}
-          </Link>
+          <Link to={`/article/${entry.node.slug}/`}>{entry.node.name}</Link>
         </h2>
-        <div className={styles.content}
+        <div
+          className={styles.content}
           dangerouslySetInnerHTML={{
-            __html: stripHTML(
-              entry.node.content.childMarkdownRemark.html
-            )
+            __html: stripHTML(entry.node.content.childMarkdownRemark.html)
           }}
         />
       </div>

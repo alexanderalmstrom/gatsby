@@ -24,7 +24,7 @@ class Layout extends React.Component {
     document.body.classList.remove('state--post')
   }
 
-  render () {
+  render() {
     return (
       <StaticQuery
         query={graphql`
@@ -40,9 +40,7 @@ class Layout extends React.Component {
           <div id="layout">
             <Helmet title={data.site.siteMetadata.title} />
             <Header data={data.site.siteMetadata} />
-            <main id="main">
-              {this.props.children}
-            </main>
+            <main id="main">{this.props.children}</main>
             <Footer />
           </div>
         )}
