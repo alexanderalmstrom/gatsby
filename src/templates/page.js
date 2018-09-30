@@ -18,15 +18,19 @@ class Page extends React.Component {
         ) : null }
         <article className={styles.page}>
           { page.name ? (
-            <h1 className={styles.pageTitle}>{page.name}</h1>
+            <header className={styles.header}>
+              <h1 className={styles.title}>{page.name}</h1>
+            </header>
           ) : null }
           { page.content ? (
-            <div
-              className={styles.pageContent}
-              dangerouslySetInnerHTML={{
-                __html: page.content.childMarkdownRemark.html
-              }}
-            />
+            <div className={styles.container}>
+              <div
+                className={styles.content}
+                dangerouslySetInnerHTML={{
+                  __html: page.content.childMarkdownRemark.html
+                }}
+              />
+            </div>
           ) : null }
         </article>
       </Layout>

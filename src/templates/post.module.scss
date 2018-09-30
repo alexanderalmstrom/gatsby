@@ -1,31 +1,41 @@
 @import '../css/mixins.scss';
 
-.article-item {
-  margin-top: 3rem;
+.container {
+  @include container;
+}
 
-  @include media(sm) {
-    margin-bottom: 6rem;
+.post {
+
+}
+
+.header {
+  margin-top: -8rem;
+}
+
+.hero {
+  margin-bottom: 8rem;
+  position: relative;
+
+  > div {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    color: $white;
   }
 
-  &:first-child {
-    border-top: none;
-    padding-top: 0;
-  }
-
-  h2 {
-    a {
-      text-decoration: none;
-    }
+  h1 {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
 }
 
-.article-item-content {
-  line-height: 1.5;
+.header-container {
+  @include container;
 }
 
-.article-title {
-  margin-top: 4rem;
-  margin-bottom: 4rem;
+.title {
   text-align: center;
 
   @include media(sm) {
@@ -33,6 +43,6 @@
   }
 }
 
-.article-content {
+.content {
 
 }

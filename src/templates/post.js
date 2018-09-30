@@ -12,23 +12,32 @@ class Post extends React.Component {
     const post = data.contentfulPost
 
     return (
-      <Layout>
+      <Layout isPost={true}>
         { post.name ? (
           <Helmet title={`${post.name} - ${title}`} />
         ) : null }
-        <article className={styles.article}>
-          { post.name ? (
-            <h1 className={styles.articleTitle}>
-              {post.name}
-            </h1>
+        <article className={styles.post}>
+          { post.heroImage ? (
+            <header className={[styles.header, post.heroImage ? styles.hero : ""].join(' ')}>
+              <div className={styles.headerContainer}>
+                { post.name ? (
+                  <h1 className={styles.title}>
+                    {post.name}
+                  </h1>
+                ) : null }
+              </div>
+              <img src={post.heroImage.resize.src} alt="" />
+            </header>
           ) : null }
           { post.content ? (
-            <div
-              className={styles.articleContent}
-              dangerouslySetInnerHTML={{
-                __html: post.content.childMarkdownRemark.html
-              }}
-            />
+            <div className={styles.container}>
+              <div
+                className={styles.content}
+                dangerouslySetInnerHTML={{
+                  __html: post.content.childMarkdownRemark.html
+                }}
+              />
+            </div>
           ) : null }
         </article>
       </Layout>
@@ -45,6 +54,11 @@ export const query = graphql`
     }
     contentfulPost(slug: { eq: $slug }) {
       name
+      heroImage {
+        resize(width: 1920, height: 1080, quality: 70) {
+          src
+        }
+      }
       content {
         childMarkdownRemark {
           html

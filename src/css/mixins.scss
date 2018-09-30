@@ -24,16 +24,26 @@
   }
 }
 
+@mixin clearfix {
+  &:after {
+    display: table;
+    content: "";
+    clear: both;
+  }
+}
+
 @mixin gutter ($gutter: $grid-gutter) {
   padding-left: $gutter;
   padding-right: $gutter;
 }
 
 @mixin container($max-width: $grid-width) {
+  @include clearfix;
   width: 100%;
   max-width: $max-width;
   margin-left: auto;
   margin-right: auto;
+  @include gutter($grid-gutter);
 }
 
 @mixin column ($size, $gutter: $grid-gutter) {

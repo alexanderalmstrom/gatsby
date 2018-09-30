@@ -1,10 +1,9 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 
-import { stripHTML } from '../services/helpers'
+import PostItem from '../components/post-item'
 
 import Layout from '../components/layout'
-import styles from '../templates/post.module.scss'
 
 class Index extends React.Component {
   render() {
@@ -12,26 +11,13 @@ class Index extends React.Component {
 
     return (
       <Layout>
-        {posts
-          ? posts.map(entry => {
-              return (
-                <div key={entry.node.id} className={styles.articleItem}>
-                  <h2>
-                    <Link to={`/article/${entry.node.slug}/`}>
-                      {entry.node.name}
-                    </Link>
-                  </h2>
-                  <div className={styles.articleItemContent}
-                    dangerouslySetInnerHTML={{
-                      __html: stripHTML(
-                        entry.node.content.childMarkdownRemark.html
-                      )
-                    }}
-                  />
-                </div>
-              )
-            })
-          : null}
+        <div className="container">
+          { posts ? posts.map(entry => {
+            return (
+              <PostItem entry={entry} />
+            )
+          }) : null }
+        </div>
       </Layout>
     )
   }
@@ -43,8 +29,8 @@ export const query = graphql`
       edges {
         node {
           id
-          slug
           name
+          slug
           content {
             childMarkdownRemark {
               html

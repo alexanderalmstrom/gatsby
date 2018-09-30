@@ -1,9 +1,18 @@
 @import '../css/mixins.scss';
 
-.page-title {
-  margin-top: 4rem;
-  margin-bottom: 4rem;
+.container {
+  @include container;
 }
 
-.page-content {
+.header {
+  @include container;
+  margin-top: 4rem;
+}
+
+.title {
+  margin-bottom: 2rem;
+}
+
+.content {
+
 }
