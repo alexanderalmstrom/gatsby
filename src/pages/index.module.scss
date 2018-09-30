@@ -1,6 +1,6 @@
 @import '../css/mixins.scss';
 
-.container {
+.content {
   @include container;
   display: flex;
   justify-content: center;

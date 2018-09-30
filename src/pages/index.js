@@ -11,7 +11,7 @@ class Index extends React.Component {
 
     return (
       <Layout>
-        <div className={styles.container}>
+        <section className={styles.content}>
           <div class={styles.posts}>
             {posts
               ? posts.map(entry => {
@@ -19,7 +19,7 @@ class Index extends React.Component {
                 })
               : null}
           </div>
-        </div>
+        </section>
       </Layout>
     )
   }
