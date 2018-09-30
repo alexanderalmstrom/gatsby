@@ -19,13 +19,15 @@ class Page extends React.Component {
         <article className={styles.page}>
           { page.name ? (
             <header className={styles.header}>
-              <h1 className={styles.title}>{page.name}</h1>
+              <div className={styles.headerInner}>
+                <h1 className={styles.title}>{page.name}</h1>
+              </div>
             </header>
           ) : null }
           { page.content ? (
-            <div className={styles.container}>
+            <div className={styles.content}>
               <div
-                className={styles.content}
+                className={styles.contentInner}
                 dangerouslySetInnerHTML={{
                   __html: page.content.childMarkdownRemark.html
                 }}

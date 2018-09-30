@@ -31,7 +31,7 @@
   }
 }
 
-.header-container {
+.header-inner {
   @include container;
 }
 
@@ -44,5 +44,5 @@
 }
 
 .content {
-
+  @include column(12);
 }

@@ -4,9 +4,17 @@
   @include container;
 }
 
+.page {
+
+}
+
 .header {
-  @include container;
   margin-top: 4rem;
+  @include container;
+}
+
+.header-inner {
+  @include column(12);
 }
 
 .title {
@@ -14,5 +22,9 @@
 }
 
 .content {
+  @include container;
+}
 
+.content-inner {
+  @include column(12);
 }

@@ -19,7 +19,7 @@ class Post extends React.Component {
         <article className={styles.post}>
           { post.heroImage ? (
             <header className={[styles.header, post.heroImage ? styles.hero : ""].join(' ')}>
-              <div className={styles.headerContainer}>
+              <div className={styles.headerInner}>
                 { post.name ? (
                   <h1 className={styles.title}>
                     {post.name}
