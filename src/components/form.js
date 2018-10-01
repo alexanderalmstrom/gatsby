@@ -49,7 +49,7 @@ class Form extends React.Component {
               <label>
                 <span className={styles.label}>{field.label}</span>
                 {(() => {
-                  switch(field.type) {
+                  switch (field.type) {
                     case 'input':
                       return (
                         <input
@@ -70,6 +70,8 @@ class Form extends React.Component {
                           onChange={this.handleChange}
                         />
                       )
+                    default:
+                      return null
                   }
                 })()}
               </label>
