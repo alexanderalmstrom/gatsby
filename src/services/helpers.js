@@ -9,3 +9,9 @@ export function truncate(html, length = 220, separator = '...') {
 
   return html
 }
+
+export function encode(data) {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&')
+}

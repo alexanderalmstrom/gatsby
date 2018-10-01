@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { navigateTo } from 'gatsby-link'
 
+import { encode } from '../services/helpers'
+
 import styles from './form.module.scss'
 
 class Form extends React.Component {
@@ -11,16 +13,26 @@ class Form extends React.Component {
     this.state = {
       valid: false
     }
-  }
 
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+  
   componentDidMount () {
+    this.setState({
+      fields: this.props.fields
+    })
+
     Object.keys(this.props.fields).reduce((key, i) => {
       key = this.props.fields[i].name
 
       this.setState({
         [key]: ''
       })
+
+      return false
     }, {})
+    
   }
 
   handleChange = e => {
@@ -55,41 +67,43 @@ class Form extends React.Component {
         onSubmit={this.handleSubmit}
       >
         <input type="hidden" name="form-name" value={this.props.name} />
-        {this.props.fields.map((field, i) => {
-          return (
-            <p key={i}>
-              <label>
-                <span className={styles.label}>{field.label}</span>
-                {(() => {
-                  switch (field.type) {
-                    case 'input':
-                      return (
-                        <input
-                          className={styles[field.type]}
-                          type={field.type}
-                          name={field.name}
-                          value={this.state[field.name]}
-                          onChange={this.handleChange}
-                        />
-                      )
-                    case 'textarea':
-                      return (
-                        <textarea
-                          className={styles[field.type]}
-                          type={field.type}
-                          name={field.name}
-                          value={this.state[field.name]}
-                          onChange={this.handleChange}
-                        />
-                      )
-                    default:
-                      return null
-                  }
-                })()}
-              </label>
-            </p>
-          )
-        })}
+        { this.state.fields ? (
+          this.state.fields.map((field, i) => {
+            return (
+              <p key={i}>
+                <label>
+                  <span className={styles.label}>{field.label}</span>
+                  {(() => {
+                    switch (field.type) {
+                      case 'input':
+                        return (
+                          <input
+                            className={styles[field.type]}
+                            type={field.type}
+                            name={field.name}
+                            value={this.state[field.name]}
+                            onChange={this.handleChange}
+                          />
+                        )
+                      case 'textarea':
+                        return (
+                          <textarea
+                            className={styles[field.type]}
+                            type={field.type}
+                            name={field.name}
+                            value={this.state[field.name]}
+                            onChange={this.handleChange}
+                          />
+                        )
+                      default:
+                        return null
+                    }
+                  })()}
+                </label>
+              </p>
+            )
+          })
+        ) : null }
         <p>
           <button className={styles.btn} type="submit">
             {this.props.btn || 'Send'}
@@ -98,12 +112,6 @@ class Form extends React.Component {
       </form>
     )
   }
-}
-
-function encode(data) {
-  return Object.keys(data)
-    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-    .join('&')
 }
 
 Form.propTypes = {
