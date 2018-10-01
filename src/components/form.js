@@ -8,7 +8,19 @@ class Form extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = {}
+    this.state = {
+      valid: false
+    }
+  }
+
+  componentDidMount () {
+    Object.keys(this.props.fields).reduce((key, i) => {
+      key = this.props.fields[i].name
+
+      this.setState({
+        [key]: ''
+      })
+    }, {})
   }
 
   handleChange = e => {
