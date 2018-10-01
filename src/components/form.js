@@ -21,8 +21,8 @@ class Form extends React.Component {
       },
       body: encode({ 'form-name': 'contact', ...this.state })
     })
-    .then(() => alert('Success!'))
-    .catch(error => alert(error))
+      .then(() => alert('Success!'))
+      .catch(error => alert(error))
 
     e.preventDefault()
   }
@@ -33,7 +33,14 @@ class Form extends React.Component {
     const { name, email, message } = this.state
 
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form
+        onSubmit={this.handleSubmit}
+        name="contact"
+        method="post"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+      >
+        <input type="hidden" name="form-name" value="contact" />
         <p>
           <label>
             <div className={styles.label}>Name:</div>
@@ -70,7 +77,9 @@ class Form extends React.Component {
           </label>
         </p>
         <p>
-          <button className={styles.btn} type="submit">Send</button>
+          <button className={styles.btn} type="submit">
+            Send
+          </button>
         </p>
       </form>
     )
