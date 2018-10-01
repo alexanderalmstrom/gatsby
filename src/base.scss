@@ -103,7 +103,10 @@ body.state--dark {
 
   a {
     color: $white;
-    border-color: $white;
+
+    &:hover {
+      border-color: $white;
+    }
   }
 
   #header {
