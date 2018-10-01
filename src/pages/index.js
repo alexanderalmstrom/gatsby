@@ -12,7 +12,7 @@ class Index extends React.Component {
     return (
       <Layout>
         <section className={styles.content}>
-          <div class={styles.posts}>
+          <div className={styles.posts}>
             {posts
               ? posts.map(entry => {
                   return <PostPreview key={entry.node.id} entry={entry} />
