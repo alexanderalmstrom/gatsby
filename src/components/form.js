@@ -1,4 +1,5 @@
 import React from 'react'
+import { navigateTo } from 'gatsby-link'
 
 import styles from './form.module.scss'
 
@@ -6,39 +7,41 @@ class Form extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = {
-      name: '',
-      email: '',
-      message: ''
-    }
+    this.state = {}
+  }
+
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value })
   }
 
   handleSubmit = e => {
+    e.preventDefault()
+
+    const form = e.target
+
     fetch('/', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      },
-      body: encode({ 'form-name': 'contact', ...this.state })
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({
+        'form-name': form.getAttribute('name'),
+        ...this.state
+      })
     })
-      .then(() => alert('Success!'))
+      .then(() => navigateTo(form.getAttribute('action')))
       .catch(error => alert(error))
-
-    e.preventDefault()
   }
-
-  handleChange = e => this.setState({ [e.target.name]: e.target.value })
 
   render() {
     const { name, email, message } = this.state
 
     return (
       <form
-        onSubmit={this.handleSubmit}
         name="contact"
         method="post"
+        action="/thanks/"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
+        onSubmit={this.handleSubmit}
       >
         <input type="hidden" name="form-name" value="contact" />
         <p>
@@ -86,7 +89,7 @@ class Form extends React.Component {
   }
 }
 
-const encode = data => {
+function encode(data) {
   return Object.keys(data)
     .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
     .join('&')
