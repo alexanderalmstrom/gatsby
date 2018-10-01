@@ -15,7 +15,7 @@
 }
 
 .header-inner {
-  @include column(9);
+  @include column(7);
 }
 
 .title {
@@ -29,5 +29,5 @@
 }
 
 .content-inner {
-  @include column(9);
+  @include column(7);
 }

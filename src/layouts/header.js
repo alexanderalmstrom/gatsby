@@ -47,6 +47,7 @@ class Header extends React.Component {
         </div>
         <nav className={styles.nav}>
           <Link to="/about/">About</Link>
+          <Link to="/contact/">Contact</Link>
         </nav>
       </header>
     )
