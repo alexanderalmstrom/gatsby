@@ -14,8 +14,15 @@ class Form extends React.Component {
       valid: false
     }
 
+    this.timer = null
+
     this.handleChange = this.handleChange.bind(this)
+    this.handleValidate = this.handleValidate.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  componentDidUpdate() {
+    
   }
   
   componentDidMount () {
@@ -32,11 +39,22 @@ class Form extends React.Component {
 
       return false
     }, {})
-    
   }
 
   handleChange = e => {
+    e.persist()
+
     this.setState({ [e.target.name]: e.target.value })
+
+    clearTimeout(this.timer)
+
+    this.timer = setTimeout(() => {
+      this.handleValidate(e)
+    }, 300)
+  }
+
+  handleValidate = e => {
+
   }
 
   handleSubmit = e => {
