@@ -2,7 +2,8 @@ import React from 'react'
 import { auth } from '../services/auth'
 
 import Layout from '../layouts/layout'
-import styles from '../layouts/page.module.scss'
+import pageStyles from '../layouts/page.module.scss'
+import formStyles from '../components/form.module.scss'
 
 class CreateUser extends React.Component {
   constructor (props) {
@@ -14,6 +15,12 @@ class CreateUser extends React.Component {
     }
   }
 
+  handleChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
+
   handleSubmit = e => {
     e.preventDefault()
 
@@ -23,19 +30,41 @@ class CreateUser extends React.Component {
       .catch(error => console.log('Error', error))
   }
 
-  handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value })
-  }
-
   render() {
     return (
       <Layout>
-        <div className={styles.container}>
+        <div className={pageStyles.container}>
           <h1>Create user</h1>
           <form onSubmit={this.handleSubmit}>
-            <input type="email" name="email" value={this.state.email} onChange={this.handleChange} />
-            <input type="password" name="password" value={this.state.password} onChange={this.handleChange} />
-            <button type="submit">Create user</button>
+            <p>
+              <label>
+                <span className={formStyles.label}>
+                  Email
+                </span>
+                <input
+                  type="email"
+                  name="email"
+                  className={formStyles.input}
+                  value={this.state.email}
+                  onChange={this.handleChange} />
+              </label>
+            </p>
+            <p>
+              <label>
+                <span className={formStyles.label}>
+                  Password
+                </span>
+                <input
+                  type="password"
+                  name="password"
+                  className={formStyles.input}
+                  value={this.state.password}
+                  onChange={this.handleChange} />
+              </label>
+            </p>
+            <button
+              type="submit"
+              className={formStyles.btn}>Create user</button>
           </form>
         </div>
       </Layout>

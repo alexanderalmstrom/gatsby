@@ -42,7 +42,9 @@ class Form extends React.Component {
   handleChange = e => {
     e.persist()
 
-    this.setState({ [e.target.name]: e.target.value })
+    this.setState({
+      [e.target.name]: e.target.value
+    })
 
     clearTimeout(this.timer)
 
