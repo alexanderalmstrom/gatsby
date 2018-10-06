@@ -18,7 +18,7 @@ class Contact extends React.Component {
           <section className={styles.content}>
             <div className={styles.contentInner}>
               <Form
-                name="contact"
+                name="test"
                 fields={[
                   { type: 'input', name: 'name', label: 'Name' },
                   { type: 'input', name: 'email', label: 'Email' },
