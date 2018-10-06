@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { navigateTo } from 'gatsby-link'
+import { navigate } from 'gatsby-link'
 
 import { encode } from '../services/helpers'
 
@@ -68,7 +68,7 @@ class Form extends React.Component {
         ...this.state
       })
     })
-      .then(() => navigateTo(form.getAttribute('action')))
+      .then(() => navigate(form.getAttribute('action')))
       .catch(error => alert(error))
   }
 
