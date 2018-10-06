@@ -11,7 +11,8 @@ class CreateUser extends React.Component {
 
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      error: ''
     }
   }
 
@@ -27,45 +28,64 @@ class CreateUser extends React.Component {
     auth
       .signup(this.state.email, this.state.password)
       .then(response => console.log('User created!', response))
-      .catch(error => console.log('Error', error))
+      .catch(error => {
+        console.log(error)
+
+        this.setState({
+          error: error.message
+        })
+      })
   }
 
   render() {
+    const { email, password, error } = this.state
+
     return (
       <Layout>
         <div className={pageStyles.container}>
-          <h1>Create user</h1>
-          <form onSubmit={this.handleSubmit}>
-            <p>
-              <label>
-                <span className={formStyles.label}>
-                  Email
-                </span>
-                <input
-                  type="email"
-                  name="email"
-                  className={formStyles.input}
-                  value={this.state.email}
-                  onChange={this.handleChange} />
-              </label>
-            </p>
-            <p>
-              <label>
-                <span className={formStyles.label}>
-                  Password
-                </span>
-                <input
-                  type="password"
-                  name="password"
-                  className={formStyles.input}
-                  value={this.state.password}
-                  onChange={this.handleChange} />
-              </label>
-            </p>
-            <button
-              type="submit"
-              className={formStyles.btn}>Create user</button>
-          </form>
+          <header className={pageStyles.header}>
+            <div className={pageStyles.headerInner}>
+              <h1>Create user</h1>
+            </div>
+          </header>
+          <section className={pageStyles.content}>
+            <div className={pageStyles.contentInner}>
+              <form onSubmit={this.handleSubmit}>
+                <p>
+                  <label>
+                    <span className={formStyles.label}>
+                      Email
+                    </span>
+                    <input
+                      type="email"
+                      name="email"
+                      className={formStyles.input}
+                      value={email}
+                      onChange={this.handleChange} />
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <span className={formStyles.label}>
+                      Password
+                    </span>
+                    <input
+                      type="password"
+                      name="password"
+                      className={formStyles.input}
+                      value={password}
+                      onChange={this.handleChange} />
+                  </label>
+                </p>
+                <button
+                  type="submit"
+                  className={formStyles.btn}>Create user</button>
+              </form>
+              <div className={formStyles.error}>
+                {error}
+              </div>
+            </div>
+          </section>
         </div>
       </Layout>
     )
