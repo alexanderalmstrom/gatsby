@@ -79,7 +79,9 @@ class CreateUser extends React.Component {
                 </p>
                 <button
                   type="submit"
-                  className={formStyles.btn}>Create user</button>
+                  className={formStyles.btn}>
+                  Create user
+                </button>
               </form>
               <div className={formStyles.error}>
                 {error}
