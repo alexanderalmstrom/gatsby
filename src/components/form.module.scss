@@ -10,19 +10,24 @@
 .textarea,
 .btn {
   box-sizing: border-box;
+  transition: all $transition;
 }
 
 .input,
 .textarea {
   width: 100%;
-  border: 1px solid $black;
+  border: 1px solid $gray;
   outline: none;
   font-size: 1.6rem;
   background-color: transparent;
+
+  &:focus {
+    border-color: $black;
+  }
 }
 
 .input {
-  height: 4rem;
+  height: 5rem;
   padding: 0 1rem;
 }
 
