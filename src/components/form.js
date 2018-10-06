@@ -21,11 +21,9 @@ class Form extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  componentDidUpdate() {
-    
-  }
-  
-  componentDidMount () {
+  componentDidUpdate() {}
+
+  componentDidMount() {
     this.setState({
       fields: this.props.fields
     })
@@ -53,9 +51,7 @@ class Form extends React.Component {
     }, 300)
   }
 
-  handleValidate = e => {
-
-  }
+  handleValidate = e => {}
 
   handleSubmit = e => {
     e.preventDefault()
@@ -85,43 +81,43 @@ class Form extends React.Component {
         onSubmit={this.handleSubmit}
       >
         <input type="hidden" name="form-name" value={this.props.name} />
-        { this.state.fields ? (
-          this.state.fields.map((field, i) => {
-            return (
-              <p key={i}>
-                <label>
-                  <span className={styles.label}>{field.label}</span>
-                  {(() => {
-                    switch (field.type) {
-                      case 'input':
-                        return (
-                          <input
-                            className={styles[field.type]}
-                            type={field.type}
-                            name={field.name}
-                            value={this.state[field.name]}
-                            onChange={this.handleChange}
-                          />
-                        )
-                      case 'textarea':
-                        return (
-                          <textarea
-                            className={styles[field.type]}
-                            type={field.type}
-                            name={field.name}
-                            value={this.state[field.name]}
-                            onChange={this.handleChange}
-                          />
-                        )
-                      default:
-                        return null
-                    }
-                  })()}
-                </label>
-              </p>
-            )
-          })
-        ) : null }
+        {this.state.fields
+          ? this.state.fields.map((field, i) => {
+              return (
+                <p key={i}>
+                  <label>
+                    <span className={styles.label}>{field.label}</span>
+                    {(() => {
+                      switch (field.type) {
+                        case 'input':
+                          return (
+                            <input
+                              className={styles[field.type]}
+                              type={field.type}
+                              name={field.name}
+                              value={this.state[field.name]}
+                              onChange={this.handleChange}
+                            />
+                          )
+                        case 'textarea':
+                          return (
+                            <textarea
+                              className={styles[field.type]}
+                              type={field.type}
+                              name={field.name}
+                              value={this.state[field.name]}
+                              onChange={this.handleChange}
+                            />
+                          )
+                        default:
+                          return null
+                      }
+                    })()}
+                  </label>
+                </p>
+              )
+            })
+          : null}
         <p>
           <button className={styles.btn} type="submit">
             {this.props.btn || 'Send'}
