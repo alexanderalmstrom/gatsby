@@ -11,14 +11,10 @@ class Form extends React.Component {
     super(props)
 
     this.state = {
-      data: {},
-      valid: false
+      data: {}
     }
 
-    this.timer = null
-
     this.handleChange = this.handleChange.bind(this)
-    this.handleValidate = this.handleValidate.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
@@ -45,27 +41,15 @@ class Form extends React.Component {
   }
 
   handleChange = e => {
-    e.persist()
-
     this.setState({
       data: { ...this.state.data, [e.target.name]: e.target.value }
     })
-
-    clearTimeout(this.timer)
-
-    this.timer = setTimeout(() => {
-      this.handleValidate(e)
-    }, 300)
   }
-
-  handleValidate = e => {}
 
   handleSubmit = e => {
     e.preventDefault()
 
     const form = e.target
-
-    console.log(this.state)
 
     fetch('/', {
       method: 'POST',
