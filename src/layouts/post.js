@@ -12,7 +12,7 @@ class Post extends React.Component {
     const post = data.contentfulPost
 
     return (
-      <Layout isPost={true}>
+      <Layout state="post">
         {post.name ? <Helmet title={`${post.name} - ${title}`} /> : null}
         <article className={styles.post}>
           {post.heroImage ? (
@@ -22,7 +22,7 @@ class Post extends React.Component {
                   <h1 className={styles.title}>{post.name}</h1>
                 ) : null}
               </div>
-              <img src={post.heroImage.resize.src} alt="" />
+              <img src={post.heroImage.resize.src} alt={post.heroImage.title} />
             </header>
           ) : null}
           {post.content ? (
@@ -54,6 +54,7 @@ export const query = graphql`
         resize(width: 1920, height: 1080, quality: 70) {
           src
         }
+        title
       }
       content {
         childMarkdownRemark {

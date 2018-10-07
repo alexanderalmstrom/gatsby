@@ -5,11 +5,12 @@
 }
 
 .header {
-  margin-top: -8rem;
+  margin-top: -6rem;
   margin-bottom: 4rem;
   position: relative;
 
   @include media(sm) {
+    margin-top: -8rem;
     margin-bottom: 8rem;
   }
 

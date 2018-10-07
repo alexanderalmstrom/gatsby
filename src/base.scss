@@ -2,6 +2,10 @@
 
 // BASE
 
+* {
+  box-sizing: border-box;
+}
+
 html {
   font-size: 10px;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -98,7 +102,7 @@ img {
 
 // STATES
 
-body.state--dark {
+body.state--page {
   background: $black;
   color: $white;
 
@@ -135,6 +139,8 @@ body.state--scroll-up {
 body.state--scroll-down {
   #header {
     transform: translateY(-100%);
+    background: $white;
+    color: $black;
   }
 }
 

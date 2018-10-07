@@ -12,7 +12,7 @@ class Page extends React.Component {
     const page = data.contentfulPage
 
     return (
-      <Layout isDark={true}>
+      <Layout state="page">
         {page.name ? <Helmet title={`${page.name} - ${title}`} /> : null}
         <article className={styles.page}>
           {page.name ? (

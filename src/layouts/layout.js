@@ -10,18 +10,18 @@ import '../base.scss'
 
 class Layout extends React.Component {
   componentDidMount() {
-    document.body.classList.toggle('state--dark', this.props.isDark)
-    document.body.classList.toggle('state--post', this.props.isPost)
+    document.body.classList.toggle(
+      `state--${this.props.state}`,
+      this.props.state
+    )
   }
 
   componentDidUpdate(prevProps) {
-    document.body.classList.toggle('state--dark', prevProps.isDark)
-    document.body.classList.toggle('state--post', prevProps.isPost)
+    document.body.classList.toggle(`state--${prevProps.state}`, prevProps.state)
   }
 
   componentWillUnmount() {
-    document.body.classList.remove('state--dark')
-    document.body.classList.remove('state--post')
+    document.body.classList.remove(`state--${this.props.state}`)
   }
 
   render() {
@@ -50,13 +50,11 @@ class Layout extends React.Component {
 }
 
 Layout.defaultProps = {
-  isDark: false,
-  isPost: false
+  state: null
 }
 
 Layout.propTypes = {
-  isDark: PropTypes.bool,
-  isPost: PropTypes.bool
+  state: PropTypes.string
 }
 
 export default Layout
