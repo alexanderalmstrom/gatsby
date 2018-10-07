@@ -18,10 +18,10 @@ class Contact extends React.Component {
           <section className={styles.content}>
             <div className={styles.contentInner}>
               <Form
-                name="test"
+                name="contact"
                 fields={[
-                  { type: 'input', name: 'name', label: 'Name' },
-                  { type: 'input', name: 'email', label: 'Email' },
+                  { type: 'text', name: 'name', label: 'Name' },
+                  { type: 'email', name: 'email', label: 'Email' },
                   { type: 'textarea', name: 'message', label: 'Message' }
                 ]}
               />

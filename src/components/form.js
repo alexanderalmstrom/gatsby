@@ -11,6 +11,7 @@ class Form extends React.Component {
     super(props)
 
     this.state = {
+      data: {},
       valid: false
     }
 
@@ -27,23 +28,27 @@ class Form extends React.Component {
     this.setState({
       fields: this.props.fields
     })
+    
+    this.data = {}
 
     Object.keys(this.props.fields).reduce((key, i) => {
       key = this.props.fields[i].name
 
-      this.setState({
-        [key]: ''
-      })
+      this.data[key] = ''
 
       return false
     }, {})
+
+    this.setState({
+      data: this.data
+    })
   }
 
   handleChange = e => {
     e.persist()
 
     this.setState({
-      [e.target.name]: e.target.value
+      data: { ...this.state.data, [e.target.name]: e.target.value }
     })
 
     clearTimeout(this.timer)
@@ -60,12 +65,14 @@ class Form extends React.Component {
 
     const form = e.target
 
+    console.log(this.state)
+
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
         'form-name': form.getAttribute('name'),
-        ...this.state
+        ...this.state.data
       })
     })
       .then(() => navigate(form.getAttribute('action')))
@@ -73,6 +80,8 @@ class Form extends React.Component {
   }
 
   render() {
+    const { fields } = this.state
+
     return (
       <form
         name={this.props.name}
@@ -83,21 +92,21 @@ class Form extends React.Component {
         onSubmit={this.handleSubmit}
       >
         <input type="hidden" name="form-name" value={this.props.name} />
-        {this.state.fields
-          ? this.state.fields.map((field, i) => {
+        {fields ? fields.map((field, i) => {
               return (
                 <p key={i}>
                   <label>
                     <span className={styles.label}>{field.label}</span>
                     {(() => {
                       switch (field.type) {
-                        case 'input':
+                        case 'text':
+                        case 'email':
                           return (
                             <input
                               className={styles[field.type]}
                               type={field.type}
                               name={field.name}
-                              value={this.state[field.name]}
+                              value={this.state.data[field.name]}
                               onChange={this.handleChange}
                             />
                           )
@@ -107,7 +116,7 @@ class Form extends React.Component {
                               className={styles[field.type]}
                               type={field.type}
                               name={field.name}
-                              value={this.state[field.name]}
+                              value={this.state.data[field.name]}
                               onChange={this.handleChange}
                             />
                           )

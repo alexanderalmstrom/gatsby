@@ -6,7 +6,7 @@ import pageStyles from '../layouts/page.module.scss'
 import formStyles from '../components/form.module.scss'
 
 class CreateUser extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.state = {
@@ -53,39 +53,33 @@ class CreateUser extends React.Component {
               <form onSubmit={this.handleSubmit}>
                 <p>
                   <label>
-                    <span className={formStyles.label}>
-                      Email
-                    </span>
+                    <span className={formStyles.label}>Email</span>
                     <input
                       type="email"
                       name="email"
-                      className={formStyles.input}
+                      className={formStyles.text}
                       value={email}
-                      onChange={this.handleChange} />
+                      onChange={this.handleChange}
+                    />
                   </label>
                 </p>
                 <p>
                   <label>
-                    <span className={formStyles.label}>
-                      Password
-                    </span>
+                    <span className={formStyles.label}>Password</span>
                     <input
                       type="password"
                       name="password"
-                      className={formStyles.input}
+                      className={formStyles.text}
                       value={password}
-                      onChange={this.handleChange} />
+                      onChange={this.handleChange}
+                    />
                   </label>
                 </p>
-                <button
-                  type="submit"
-                  className={formStyles.btn}>
+                <button type="submit" className={formStyles.btn}>
                   Create user
                 </button>
               </form>
-              <div className={formStyles.error}>
-                {error}
-              </div>
+              <div className={formStyles.error}>{error}</div>
             </div>
           </section>
         </div>
